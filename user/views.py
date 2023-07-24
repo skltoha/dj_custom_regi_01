@@ -29,18 +29,22 @@ def register_user(request):
     if request.method == 'POST':
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
+            firstName = form.cleaned_data['first_name']
+            lsatName = form.cleaned_data['last_name']
             username = form.cleaned_data['username']
-            hashed_password = make_password(form.cleaned_data['password'])
+            input_password = form.cleaned_data['password']
+            hashed_password = make_password(input_password)
             fromemail = form.cleaned_data['email']
+            doB = form.cleaned_data['dob']
             verify_code_generate = code()
 
             new_user = user(
-                first_name=form.cleaned_data['first_name'],
-                last_name=form.cleaned_data['last_name'],
+                first_name= firstName,
+                last_name=lsatName,
                 username=username,
                 email=fromemail,
                 password=hashed_password,
-                dob=form.cleaned_data['dob'],
+                dob=doB,
                 isActive=False,
                 isVerify=False,
                 verify_code=verify_code_generate,
@@ -53,7 +57,7 @@ def register_user(request):
 
             subject = 'Welcome to Our DjProject'
 
-            message = f'Hi {form.cleaned_data["first_name"]},\n\nEnter the 6-digit code below to verify your identity and regain access to your Django Project account.! \n\n {verify_code_generate} \n\n Thanks for helping us keep your account secure. The Django eShikhon Team'
+            message = f'Hi {firstName} {lsatName},\n\nEnter the 6-digit code below to verify your identity and regain access to your Django Project account.! \n\n {verify_code_generate} \n\n Thanks for helping us keep your account secure. The Django eShikhon Team'
             from_email = settings.EMAIL_HOST_USER
             recipient_list = [fromemail,]
 
@@ -85,9 +89,11 @@ def user_login(request):
                     else:
                         return redirect('verify')
                 else:
-                    pass
+                    messages.error(request, 'passwor not matched')
+                    return redirect('login')
             except user.DoesNotExist:
-                return redirect('home')
+                messages.error(request, 'username not found')
+                return redirect('login')
 
     else:
         form = UserLoginForm()

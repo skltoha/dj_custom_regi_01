@@ -67,10 +67,11 @@ a {
 .form-center {
   width: min(600px, 100% - 5rem);
   margin-inline: auto;
-  background-color: rgb(159, 222, 203);
+  background-color: rgb(255, 255, 255);
   box-shadow: 5px 5px 5px rgb(131, 93, 93);
   padding: 20px 30px;
   border-radius: 5px;
+  border: 1px solid black;
 }
 
 /* styles.css */
