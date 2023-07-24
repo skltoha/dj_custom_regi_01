@@ -1,0 +1,19 @@
+{% extends 'base.html' %} {% block context %}
+
+<div class="container">
+  {% if messages %}
+  <ul>
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+
+  <h2>verify page</h2>
+  <p>Please verify by code, please check your email</p>
+  <form method="post">
+    {% csrf_token %} {{ form.as_p }}
+    <input type="submit" value="verify" />
+  </form>
+</div>
+{% endblock %}

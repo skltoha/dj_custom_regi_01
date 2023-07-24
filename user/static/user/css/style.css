@@ -1,0 +1,105 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+.container {
+  --max-weight: 1148px;
+  --padding: 2rem;
+  width: min(var(--max-weight), 100% - var(--padding));
+  margin-inline: auto;
+}
+
+.container h1 {
+  color: rgb(255, 255, 255);
+  padding: 10px 0px;
+}
+.header-top {
+  margin: 0;
+  background-color: rgb(6, 94, 65);
+  display: flex;
+  align-items: center;
+}
+.header-nav {
+  margin: 0 0 20px;
+  background-color: rgb(65, 187, 146);
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.registrationform {
+  width: 100%;
+  margin-inline: auto;
+}
+
+.input-group {
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0px;
+}
+.nav-left {
+  float: left;
+}
+.nav-right {
+  float: right;
+}
+a {
+  padding: 10px 20px;
+  text-decoration: none;
+  background-color: rgb(10, 227, 155);
+  border-radius: 5px;
+}
+.form-center {
+  width: min(600px, 100% - 5rem);
+  margin-inline: auto;
+  background-color: rgb(159, 222, 203);
+  box-shadow: 5px 5px 5px rgb(131, 93, 93);
+  padding: 20px 30px;
+  border-radius: 5px;
+}
+
+/* styles.css */
+form {
+  margin: auto;
+  box-sizing: border-box;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input[type="submit"] {
+  background-color: rgb(6, 94, 65);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16;
+}
+
+input[type="submit"]:hover {
+  background-color: rgb(14, 157, 109);
+}

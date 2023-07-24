@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'user/css/style.css' %}" />
+  </head>
+  <body>
+    <div class="header-top">
+      <div class="container">
+        <h1>Welcome to my new project!!!</h1>
+      </div>
+    </div>
+    <div class="header-nav">
+      <div class="container">
+        <div class="navbar">
+          <div class="nav-left">
+            <a href="{% url 'home' %}">Home</a>
+          </div>
+          <div class="nav-right">
+            {% if username %}
+            <a href="">Welcome, {{ username }}!</a>
+            <a href="{% url 'logout' %}">Sign Out</a>
+            {% else %}
+            <a href="{% url 'login' %}">Sign IN</a>
+            <a href="{% url 'register' %}">Sign UP</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+    {% block context %}{% endblock%}
+  </body>
+</html>

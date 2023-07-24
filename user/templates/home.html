@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% block context %}
+
+<div class="container">
+  {% if messages %}
+  <ul>
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %} {% if username %}
+  <h2>Welcome Mr. {{ username }}</h2>
+  {% else %}
+  <h2>Please connect with us!!!</h2>
+  {% endif %}
+</div>
+
+{% endblock context %}
