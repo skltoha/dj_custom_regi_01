@@ -7,7 +7,7 @@ class UserRegistrationForm(forms.Form):
     username = forms.CharField(max_length=50)
     email = forms.EmailField(max_length=128)
     password = forms.CharField(widget=forms.PasswordInput)
-    dob = forms.DateField(required=False)
+    dob = forms.DateField(required=False, label="Date Of Birth")
 
 
 class UserLoginForm(forms.Form):
